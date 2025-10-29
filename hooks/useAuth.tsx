@@ -30,12 +30,13 @@ const useAuthApi = () => {
   };
 
   const login = async (email: string, password: string): Promise<void> => {
-    const session = await account.createEmailPasswordSession({
+    await account.createEmailPasswordSession({
       email,
       password
     });
 
-    setCurrent(session);
+    const user = await account.get();
+    setCurrent(user);
     router.push("/");
   };
 
