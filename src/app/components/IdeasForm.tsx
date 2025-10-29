@@ -1,13 +1,10 @@
 'use client'
 
 import { useAuth } from "../../../hooks/useAuth"
-import type { AddIdeaParams } from "../../../hooks/useIdeas"
+import { useIdeas } from "../../../hooks/useIdeas"
 
-interface IdeasFormProps {
-  add: (ideas: AddIdeaParams) => Promise<void>
-}
-
-const IdeasForm = ({ add }: IdeasFormProps) => {
+const IdeasForm = () => {
+  const { add } = useIdeas()
   const { current: user } = useAuth()
 
   const handleAddIdea = async (e: React.FormEvent<HTMLFormElement>) => {

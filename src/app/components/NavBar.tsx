@@ -7,7 +7,8 @@ const NavBar = () => {
   const { current, logout } = useAuth()
 
   const btnLogout = <div className=" main-header-end u-margin-inline-end-16">
-    <p>{current?.providerUid}</p>
+    <p>{current?.email}</p>
+
     <button
       className="button"
       type="button"

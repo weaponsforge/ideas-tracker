@@ -1,15 +1,10 @@
 'use client'
 
 import { useAuth } from "../../../hooks/useAuth"
-import type { Idea } from "../../../hooks/useIdeas"
+import { useIdeas, type Idea } from "../../../hooks/useIdeas"
 
-interface IdeasListProps {
-  ideas: Idea[],
-  loading: boolean,
-  remove: (id: string) => Promise<void>
-}
-
-const IdeasList = ({ ideas, loading, remove }: IdeasListProps) => {
+const IdeasList = () => {
+  const { current: ideas, loading, remove } = useIdeas()
   const { current: user } = useAuth()
 
   if (loading) {
