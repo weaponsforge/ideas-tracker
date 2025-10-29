@@ -31,9 +31,15 @@ const IdeasList = () => {
                 <h5 className="heading-level-5">{idea.title}</h5>
 
                 {idea.description && (
-                  <p className="u-margin-block-start-8">
-                    {idea.description}
-                  </p>
+                  <>
+                    <p className="u-margin-block-start-8">
+                      {idea.description}
+                    </p>
+
+                    <label className="label">
+                      {idea.userId}
+                    </label>
+                  </>
                 )}
               </div>
 

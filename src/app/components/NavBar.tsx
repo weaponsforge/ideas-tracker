@@ -6,8 +6,11 @@ import { useAuth } from "../../../hooks/useAuth"
 const NavBar = () => {
   const { current, logout } = useAuth()
 
-  const btnLogout = <div className=" main-header-end u-margin-inline-end-16">
-    <p>{current?.email}</p>
+  const btnLogout = <div className="main-header-end u-margin-inline-end-16">
+    <div className="flex flex-col">
+      <div><b>{current?.email}</b></div>
+      <div>{current?.$id}</div>
+    </div>
 
     <button
       className="button"

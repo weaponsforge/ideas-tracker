@@ -8,7 +8,7 @@ import {
   type ReactNode
 } from "react";
 
-import { ID, Query, Permission, type Models } from "appwrite";
+import { ID, Query, Permission, Role, type Models } from "appwrite";
 import { tablesDB } from "../lib/apwrite";
 
 const databaseId = process.env.NEXT_PUBLIC_DATABASE_ID!;
@@ -62,8 +62,8 @@ const useIdeasApi = () => {
         idea,
         [
           Permission.read('any'),
-          Permission.update(`user:${idea.userId}`),
-          Permission.delete(`user:${idea.userId}`)
+          Permission.update(Role.user(idea.userId)),
+          Permission.delete(Role.user(idea.userId))
         ]
       );
 
