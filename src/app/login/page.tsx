@@ -10,12 +10,9 @@ const LoginPage = () => {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('---LOGIN')
 
     const form = e.target as HTMLFormElement
     const formData = new FormData(form)
-
-    console.log('---e.target is', e.target)
 
     await login(
       formData.get('email') as string,
@@ -27,7 +24,6 @@ const LoginPage = () => {
 
   const handleRegistration = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('---REGISTER', isSignUp)
 
     const form = e.target as HTMLFormElement
     const formData = new FormData(form)

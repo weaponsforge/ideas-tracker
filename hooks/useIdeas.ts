@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from "react";
 import { ID, Query, Permission, type Models } from "appwrite";
 import { tablesDB } from "../lib/apwrite";
@@ -6,11 +8,13 @@ const databaseId = process.env.NEXT_PUBLIC_DATABASE_ID!
 const tableId = process.env.NEXT_PUBLIC_TABLE_ID!
 const queryLimit = 10
 
-interface Idea extends Models.Row {
+export interface Idea extends Models.Row {
   title: string;
   description: string;
   userId: string;
 }
+
+export type AddIdeaParams = Omit<Idea, '$id' | '$createdAt' | '$updatedAt' | '$permissions' | '$sequence' | '$tableId' | '$databaseId'>
 
 const useIdeas = () => {
   const [current, setCurrent] = useState<Idea[]>([])
@@ -33,8 +37,12 @@ const useIdeas = () => {
     }
   }
 
-  const add = async (idea: Omit<Idea, '$id' | '$createdAt' | '$updatedAt' | '$permissions' | '$sequence' | '$tableId' | '$databaseId'>): Promise<void> => {
+  const add = async (idea: AddIdeaParams): Promise<void> => {
     try {
+      console.log('---databaseId', databaseId)
+      console.log('---tableId', tableId)
+      console.log('--idea', idea)
+
       const response = await tablesDB.createRow(
         databaseId,
         tableId,
@@ -42,12 +50,16 @@ const useIdeas = () => {
         idea,
         [
           Permission.read('any'),
-          Permission.update(`user:$[idea.userId]`),
-          Permission.delete(`user:$[idea.userId]`)
+          Permission.update(`user:${idea.userId}`),
+          Permission.delete(`user:${idea.userId}`)
         ]
       )
 
-      setCurrent(prev => [response as Idea, ...prev].slice(0, queryLimit))
+      console.log('---response', response)
+
+      setCurrent(prev =>
+        [response as unknown as Idea, ...prev].slice(0, queryLimit)
+      );
     } catch (error) {
       console.error('Error adding idea: ', error)
     }

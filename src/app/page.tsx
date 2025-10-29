@@ -1,8 +1,13 @@
-// src/app/page.tsx
+'use client'
+
 import IdeasForm from "./components/IdeasForm";
 import IdeasList from "./components/IdeasList";
 
+import useIdeas from "../../hooks/useIdeas";
+
 export default function Home() {
+  const ideasApi = useIdeas()
+
     return (
         <main className="u-padding-16">
             <div className="container">
@@ -11,8 +16,14 @@ export default function Home() {
                     Track all your side project ideas in one place.
                 </p>
             </div>
-            <IdeasForm />
-            <IdeasList />
+
+            <IdeasForm add={ideasApi.add} />
+
+            <IdeasList
+              ideas={ideasApi.current}
+              loading={ideasApi.loading}
+              remove={ideasApi.remove}
+            />
         </main>
     );
 }

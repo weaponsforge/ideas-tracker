@@ -1,4 +1,10 @@
-import { useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState
+} from "react";
+
 import { account } from "../lib/apwrite";
 import { ID } from "../lib/apwrite";
 import type { Models } from "appwrite";
@@ -10,13 +16,12 @@ export const useAuth = () => {
   const router = useRouter()
 
   const register = async (email: string, password: string): Promise<void> => {
-    const user = await account.create({
+    await account.create({
       userId: ID.unique(),
       email,
       password
     })
 
-    console.log('---user', user)
     await login(email, password)
   }
 
@@ -25,6 +30,8 @@ export const useAuth = () => {
       email,
       password
     })
+
+    console.log('---SESSION', session)
 
     setCurrent(session)
     router.push('/')

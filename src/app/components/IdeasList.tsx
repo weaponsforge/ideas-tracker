@@ -1,10 +1,15 @@
 'use client'
 
-import useIdeas from "../../../hooks/useIdeas"
 import { useAuth } from "../../../hooks/useAuth"
+import type { Idea } from "../../../hooks/useIdeas"
 
-const IdeasList = () => {
-  const { current: ideas, loading, remove } = useIdeas()
+interface IdeasListProps {
+  ideas: Idea[],
+  loading: boolean,
+  remove: (id: string) => Promise<void>
+}
+
+const IdeasList = ({ ideas, loading, remove }: IdeasListProps) => {
   const { current: user } = useAuth()
 
   if (loading) {
@@ -25,7 +30,7 @@ const IdeasList = () => {
 
       <ul className="u-margin-0 u-padding-0">
         {ideas.map((idea) => (
-          <li key={ideas.$id} className="card u-margin-block-end-16">
+          <li key={idea.$id} className="card u-margin-block-end-16">
             <div className="u-flex u-main-space-between">
               <div className="u-flex-grow-1">
                 <h5 className="heading-level-5">{idea.title}</h5>
@@ -37,7 +42,7 @@ const IdeasList = () => {
                 )}
               </div>
 
-              {user && user.userId === idea.userId && (
+              {user && user.$id === idea.userId && (
                 <button
                   onClick={() => remove(idea.$id)}
                   className="button is-text u-padding-inline-0"
