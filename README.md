@@ -13,15 +13,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
    - **Database - Settings**
       | Option | Value |
       | --- | --- |
-      | Permissions | **Any** - `"Read"` only <br> **All users** - `"Create"` only |
+      | Permissions | <ul><li>**Any** - `"Read"` only</li><li>**All users** - `"Create"` only</li></ul> |
       | Row security | _(Toggled on)_ |
 
    - **Database Columns**
       | Column name | Type | Size | Required |
-      | --- | --- | --- | --- |
-      | userId | string | 200 | yes |
-      | title | string | 200 | yes |
-      | description | string | 500 | no |
+      | --- | --- | --- | :---: |
+      | `userId` | string | 200 | yes |
+      | `title` | string | 200 | yes |
+      | `description` | string | 500 | no |
 
 
 ## Getting Started
