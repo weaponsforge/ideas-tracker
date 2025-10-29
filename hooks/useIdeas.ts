@@ -33,7 +33,7 @@ const useIdeas = () => {
     }
   }
 
-  const add = async (idea: Omit<Idea, '$id' | '$createdAt' | '$updatedAt' | '$permissions'>): Promise<void> => {
+  const add = async (idea: Omit<Idea, '$id' | '$createdAt' | '$updatedAt' | '$permissions' | '$sequence' | '$tableId' | '$databaseId'>): Promise<void> => {
     try {
       const response = await tablesDB.createRow(
         databaseId,
@@ -74,3 +74,5 @@ const useIdeas = () => {
     remove
   }
 }
+
+export default useIdeas
