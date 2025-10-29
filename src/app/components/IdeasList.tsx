@@ -1,7 +1,7 @@
 'use client'
 
 import { useAuth } from "../../../hooks/useAuth"
-import { useIdeas, type Idea } from "../../../hooks/useIdeas"
+import { useIdeas } from "../../../hooks/useIdeas"
 
 const IdeasList = () => {
   const { current: ideas, loading, remove } = useIdeas()
@@ -11,7 +11,7 @@ const IdeasList = () => {
     return <div>Loading ideas...</div>
   }
 
-  if (ideas.length === 0) {
+  if (ideas?.length === 0) {
     return (
       <div className="container u-margin-block-start-16">
         <p>No ideas yet. Be the first to share one!</p>

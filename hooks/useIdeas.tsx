@@ -42,7 +42,10 @@ const useIdeasApi = () => {
       const response = await tablesDB.listRows(
         databaseId,
         tableId,
-        [Query.orderDesc('$createdAt'), Query.limit(queryLimit)]
+        [
+          Query.orderDesc('$createdAt'),
+          Query.limit(queryLimit)
+        ]
       );
 
       setCurrent((response.rows as unknown as Idea[]));
@@ -62,6 +65,7 @@ const useIdeasApi = () => {
         idea,
         [
           Permission.read('any'),
+          // Permission.read(Role.user(idea.userId)),
           Permission.update(Role.user(idea.userId)),
           Permission.delete(Role.user(idea.userId))
         ]
