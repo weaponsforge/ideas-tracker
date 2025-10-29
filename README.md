@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 > [!NOTE]
-> This features an Ideas Tracker app that follows the [Next.js AppWrite tutorials](https://appwrite.io/docs/tutorials/nextjs/step-1) for getting familiar with AppWrite.
+> It features an Ideas Tracker app that follows the [Next.js AppWrite tutorials](https://appwrite.io/docs/tutorials/nextjs/step-1) for getting familiar with AppWrite.
 
 ## Requirements
 
