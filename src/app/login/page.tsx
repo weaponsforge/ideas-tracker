@@ -10,12 +10,12 @@ const LoginPage = () => {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    console.log('---LOGIN')
 
     const form = e.target as HTMLFormElement
     const formData = new FormData(form)
 
     console.log('---e.target is', e.target)
-    console.log('---form is', form)
 
     await login(
       formData.get('email') as string,
@@ -27,6 +27,7 @@ const LoginPage = () => {
 
   const handleRegistration = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    console.log('---REGISTER', isSignUp)
 
     const form = e.target as HTMLFormElement
     const formData = new FormData(form)
@@ -45,7 +46,7 @@ const LoginPage = () => {
         <h2 className="eyebrow-heading-2">Login/Register</h2>
 
         <AuthForm
-          handleSubmit={isSignUp ? handleLogin : handleRegistration}
+          handleSubmit={isSignUp ? handleRegistration : handleLogin}
           submitType={isSignUp ? 'Sign Up' : 'Log In'}
         />
 

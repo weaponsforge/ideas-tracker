@@ -10,12 +10,13 @@ export const useAuth = () => {
   const router = useRouter()
 
   const register = async (email: string, password: string): Promise<void> => {
-    await account.create({
+    const user = await account.create({
       userId: ID.unique(),
       email,
       password
     })
 
+    console.log('---user', user)
     await login(email, password)
   }
 
