@@ -16,7 +16,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
       | Permissions | <ul><li>**Any** - `"Read"` only</li><li>**All users** - `"Create"` only</li></ul> |
       | Row security | _(Toggled on)_ |
 
-   - **Database Columns**
+   - **Database - Columns**
       | Column name | Type | Size | Required |
       | --- | --- | --- | :---: |
       | `userId` | string | 200 | yes |
@@ -30,10 +30,10 @@ First, create a `.env.local` file from the `.env.example` file. Supply the corre
 
 | Key | Description |
 | --- | --- |
-| NEXT_PUBLIC_APPWRITE_ENDPOINT | An AppWrite apps's API endpoint, available in the project settings |
-| NEXT_PUBLIC_APPWRITE_PROJECT | AppWrite project ID, also available in the project settings |
-| NEXT_PUBLIC_DATABASE_ID | AppWrite database ID |
-| NEXT_PUBLIC_TABLE_ID | AppWrite database - table ID |
+| `NEXT_PUBLIC_APPWRITE_ENDPOINT` | An AppWrite apps's API endpoint, available in the project settings |
+| `NEXT_PUBLIC_APPWRITE_PROJECT` | AppWrite project ID, also available in the project settings |
+| `NEXT_PUBLIC_DATABASE_ID` | AppWrite database ID |
+| `NEXT_PUBLIC_TABLE_ID` | AppWrite database - table ID |
 
 Then, run the development server:
 
