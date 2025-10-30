@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 > [!NOTE]
-> It features a modified **Ideas Tracker** from the [Next.js AppWrite tutorials](https://appwrite.io/docs/tutorials/nextjs/step-1), built for getting familiar with AppWrite.
+> It features a modified **Ideas Tracker** app from the [Next.js AppWrite tutorials](https://appwrite.io/docs/tutorials/nextjs/step-1), built for getting familiar with AppWrite.
 
 ## Requirements
 
@@ -10,14 +10,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
    - **Auth**<br>
       Use the default settings (do not edit anything)
 
-   - **Database - Settings**
+   - **Database - Settings**<br>
+      Create a new Database with the following settings:
+
       | Option | Value |
       | --- | --- |
       | Permissions | <ul><li>**Any** - `"Read"` only</li><li>**All users** - `"Create"` only</li></ul> |
       | Row security | _(Toggled on)_ |
 
    - **Database - Columns**<br>
-      A default table with new fields:
+      Create a Database table with new fields:
 
       | Column name | Type | Size | Required |
       | --- | --- | --- | :---: |
